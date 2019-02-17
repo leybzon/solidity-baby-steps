@@ -1,3 +1,5 @@
+pragma solidity ^0.4.24;
+
 import "mortal";
 
 contract MsgValueToBytes20 is mortal {
