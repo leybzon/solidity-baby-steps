@@ -1,3 +1,5 @@
+pragma solidity ^0.4.24;
+
 // Given an address hash, detect whether it's a contract-type address or a normal one
 
 /***
