@@ -1,3 +1,5 @@
+pragma solidity ^0.4.24;
+
 // Just testing to see if you can have multiple constructors. Nope!
 
 contract MultipleConstructorTest {
