@@ -1,3 +1,5 @@
+pragma solidity ^0.4.24;
+
 // In addition to testing contract-to-contract variable passing, 
 // this contract tests assignment of a string to a bytes32 type. 
 // the result of "savedvar" is "0x1a09254100000000000000000000000000000000000000000000000000000000"
