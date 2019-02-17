@@ -1,3 +1,5 @@
+pragma solidity ^0.4.24;
+
 // Supposedly, contracts can get non-constant return values from other contracts. (Whereas you can't from web3/geth.)
 // These two contracts are meant to test this. Like so:
 
