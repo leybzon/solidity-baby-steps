@@ -1,3 +1,5 @@
+pragma solidity ^0.4.24;
+
 // This contract is designed to demonstrate the generation of a random number.
 // If you submit a betAndFlip() request after block 180,000 has just been mined,
 // (i.e. when block 180,000 is the "best block" on stats.ethdev.gov and the most recent listed on any block explorer site), 
