@@ -1,3 +1,5 @@
+pragma solidity ^0.4.24;
+
 /*
 	This is a demonstration of the various global variables available to contracts.
 	This list is probably not exhaustive, especially weeks and months from now. (9/2015)
