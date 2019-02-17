@@ -1,3 +1,5 @@
+pragma solidity ^0.4.24;
+
 // This contract demonstrates a simple non-constant (transactional) function you can call from geth.
 // increment() takes TWO parameters and increments the interation value by howmuch and also sets an arbitrary customvalue.
 // See below for how to make the call in geth. (incrementer3.increment.sendTransaction(3,9, {from:eth.coinbase,gas:1000000});)
