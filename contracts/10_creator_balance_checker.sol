@@ -1,3 +1,5 @@
+pragma solidity ^0.4.24;
+
 /* 
 	Another very basic contract. It demonstrates that a contract can retrieve and store the 
 	balance of its creator address. Note that the creatorbalance value captured in the constructor is a snapshot in time.
