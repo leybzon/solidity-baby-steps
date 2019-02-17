@@ -1,3 +1,5 @@
+pragma solidity ^0.4.24;
+
 // This contract creates a 9x9 map of Tile objects. 
 // Each tile has an elevation value (as well as an owner and descriptorContract which aren't used here)
 // 
