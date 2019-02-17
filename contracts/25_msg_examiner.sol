@@ -1,3 +1,5 @@
+pragma solidity ^0.4.24;
+
 // This is supposed to allow for examination of msgs, but it proved less than informative. 
 // I'd just skip this for now.
 
