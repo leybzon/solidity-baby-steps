@@ -5,7 +5,7 @@ contract Hello {
     // constructor
   }
 
-  function sayHello() public pure returns (string) {
+  function sayHello() public pure returns (string memory) {
      return 'Hello World!';
   }
 }
