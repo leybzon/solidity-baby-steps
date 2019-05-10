@@ -10,12 +10,11 @@ contract MyNFT is ERC721Full, ERC721Mintable {
     /**
     * @dev Mints a token to an address with a tokenURI.
     * @param _to address of the future owner of the token
-    * @param _tokenURI token URI for the token
     */
-    function mintTo(address _to, string memory _tokenURI) public onlyOwner {
+    function mintOne() public onlyOwner {
         uint256 newTokenId = _getNextTokenId();
-        _mint(_to, newTokenId);
-        _setTokenURI(newTokenId, _tokenURI);
+        _mint(msg.sender, newTokenId);
+        //_setTokenURI(newTokenId, _tokenURI);
     }
 
     /**
