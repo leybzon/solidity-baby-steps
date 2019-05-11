@@ -1,29 +1,29 @@
 pragma solidity ^0.5.0;
+import 'zeppelin-solidity/contracts/token/ERC721/ERC721Token.sol';
+import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
 
-import 'openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol';
-import 'openzeppelin-solidity/contracts/token/ERC721/ERC721Mintable.sol';
+contract GradientToken is ERC721Token, Ownable {
+  string public constant name = "GradientToken";
+  string public constant symbol = "GRAD";
 
-contract DoggoTime is ERC721Full {
-    using Counter for Counter.Index;
-    Counter.Index private tokenId;
+  struct Gradient {
+    string outer;
+    string inner;
+  }
 
-    constructor(
-        string name,
-        string symbol,
-    )
-        ERC721Full(name, symbol)
-        public
-    {}
+  Gradient[] public gradients;
 
-    function createDoggoTimeframe(
-        string tokenURI
-    )
-        public
-        returns (bool)
-    {
-        uint256 doggoTokenId = tokenId.next();
-        _mint(msg.sender, doggoTokenId);
-        _setTokenURI(doggoTokenId, tokenURI);
-        return true;
-    }
+  function getGradient( uint _gradientId ) public view returns(string outer, string inner){
+    Gradient memory _grad = gradients[_gradientId];
+
+    outer = _grad.outer;
+    inner = _grad.inner;
+  }
+
+  function mint(string _outer, string _inner) public payable onlyOwner{
+    Gradient memory _gradient = Gradient({ outer: _outer, inner: _inner });
+    uint _gradientId = gradients.push(_gradient) - 1;
+
+    _mint(msg.sender, _gradientId);
+  }
 }
