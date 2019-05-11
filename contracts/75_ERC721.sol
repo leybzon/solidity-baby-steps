@@ -8,7 +8,7 @@ contract DoggoTime is ERC721Full {
 
     constructor(
         string name,
-        string symbol,
+        string symbol
     )
         ERC721Full(name, symbol)
         public
