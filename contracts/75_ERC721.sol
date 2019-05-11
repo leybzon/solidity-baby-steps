@@ -1,28 +1,18 @@
-pragma solidity ^0.5.0;
-import 'openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol';
-import 'openzeppelin-solidity/contracts/token/ERC721/Ownable.sol';
+ragma solidity ^0.5.0;
 
-contract DoggoTime is ERC721Full {
-    using Counter for Counter.Index;
-    Counter.Index private tokenId;
+import 'openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol';
+import 'openzeppelin-solidity/contracts/token/ERC721/ERC721Mintable.sol';
 
-    constructor(
-        string name,
-        string symbol
-    )
-        ERC721Full(name, symbol)
-        public
-    {}
-
-    function createDoggoTimeframe(
-        string tokenURI
-    )
-        public
-        returns (bool)
+contract MyNFT is ERC721Full, ERC721Mintable {
+  constructor() ERC721Full("MyNFT1", "MNFT1") public {
+  }
+  function mintUniqueTokenTo(
+    address _to,
+    uint256  _tokenId,
+    string  memory _tokenURI
+    ) public
     {
-        uint256 doggoTokenId = tokenId.next();
-        _mint(msg.sender, doggoTokenId);
-        _setTokenURI(doggoTokenId, tokenURI);
-        return true;
+        super._mint(_to, _tokenId);
+        super._setTokenURI(_tokenId, _tokenURI);
     }
 }
