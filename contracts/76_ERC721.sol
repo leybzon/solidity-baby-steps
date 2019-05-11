@@ -6,6 +6,11 @@ import 'openzeppelin-solidity/contracts/token/ERC721/ERC721Mintable.sol';
 contract MyNFT is ERC721Full, ERC721Mintable {
   constructor() ERC721Full("MyNFT1", "MNFT1") public {
   }
+  
+  function mint1(uint256 _uid) public{
+      _mint(msg.sender, _uid);
+  }
+  
   function mintUniqueTokenTo(
     address _to,
     uint256  _tokenId,
