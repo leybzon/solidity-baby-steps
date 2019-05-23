@@ -15,7 +15,7 @@ contract SimpleTokenERC777 is ERC777 {
     
 
     /**
-     * @dev Constructor adds msg.sender to the list of oerators
+     * @dev Constructor mints some tokens and gives them to contructor publisher
      */
     constructor () public ERC777(NAME,TOKEN,operators) {
         address operator=msg.sender;
