@@ -42,7 +42,7 @@ contract MyNFT is ERC721Full, ERC721Mintable, ERC721Pausable, ERC721Burnable  {
     {
         super._mint(_to, _tokenId);
         super._setTokenURI(_tokenId, _tokenURI);
-    }
+  }
     
   function mintTokens(
       address _to,
@@ -56,4 +56,8 @@ contract MyNFT is ERC721Full, ERC721Mintable, ERC721Pausable, ERC721Burnable  {
           super._setTokenURI(_tokenId+i, append(_tokenURI, uint2str(i)));
         }
       }
-}
+  }
+   
+  function burn(uint256  _tokenId) {
+     super._burn(_tokenId);
+  }
