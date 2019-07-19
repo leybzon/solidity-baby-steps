@@ -57,7 +57,7 @@ contract MyNFT is ERC721Full, ERC721Mintable, ERC721Pausable, ERC721Burnable  {
         }
     }
    
-    function burn(uint256  _tokenId) {
+    function burn(uint256  _tokenId) public{
       super._burn(_tokenId);
     }
   }
