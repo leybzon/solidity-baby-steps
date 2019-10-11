@@ -13,6 +13,10 @@ contract MyNFT is ERC721Full, ERC721Mintable, ERC721Pausable, ERC721Burnable  {
     return string(abi.encodePacked(a, b));
   }
   
+  function append(string memory a, string memory b, string memory c) internal pure returns (string memory r) {
+    return string(abi.encodePacked(a, b, c));
+  }
+  
   function uint2str(uint i) internal pure returns (string memory r){
     if (i == 0) return "0";
     uint j = i;
@@ -53,7 +57,7 @@ contract MyNFT is ERC721Full, ERC721Mintable, ERC721Pausable, ERC721Burnable  {
       {
         for (uint i=0; i<_tokenCount; i++) {
           super._mint(_to, _tokenId+i);
-          super._setTokenURI(_tokenId+i, append(_tokenURI, uint2str(i)));
+          super._setTokenURI(_tokenId+i, append(_tokenURI, uint2str(_tokenId+i), ".json"));
         }
     }
    
