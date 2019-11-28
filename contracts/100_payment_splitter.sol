@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 
-import "../GSN/Context.sol";
-import "../math/SafeMath.sol";
+import "openzeppelin-solidity/contracts/GSN/Context.sol";
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 /**
  * @title PaymentSplitter
