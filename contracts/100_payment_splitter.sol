@@ -1,6 +1,5 @@
 pragma solidity ^0.5.0;
 
-import "openzeppelin-solidity/contracts/GSN/Context.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 /**
@@ -13,12 +12,12 @@ import "openzeppelin-solidity/contracts/math/SafeMath.sol";
  * an amount proportional to the percentage of total shares they were assigned.
  *
  * `PaymentSplitter` follows a _pull payment_ model. This means that payments are not automatically forwarded to the
- * accounts but kept in this contract, and the actual transfer is triggered as a separate step by calling the {release}
+ * accounts but kept in this contract, and the actual transfer is triggered as a separate step by calling the `release`
  * function.
  *
- * @dev Code is based on sample provided by OpenZeppelin
+ * Based on the sample provided by OpenZeppelin
  */
-contract PaymentSplitter is Context {
+contract PaymentSplitter {
     using SafeMath for uint256;
 
     event PayeeAdded(address account, uint256 shares);
@@ -50,16 +49,16 @@ contract PaymentSplitter is Context {
     }
 
     /**
-     * @dev The Ether received will be logged with {PaymentReceived} events. Note that these events are not fully
+     * @dev The Ether received will be logged with `PaymentReceived` events. Note that these events are not fully
      * reliable: it's possible for a contract to receive Ether without triggering this function. This only affects the
      * reliability of the events, and not the actual splitting of Ether.
      *
-     * To learn more about this see the Solidity documentation for
-     * https://solidity.readthedocs.io/en/latest/contracts.html#fallback-function[fallback
-     * functions].
+     * To learn more about this see the Solidity documentation for [fallback functions].
+     *
+     * [fallback functions]: https://solidity.readthedocs.io/en/latest/contracts.html#fallback-function
      */
     function () external payable {
-        emit PaymentReceived(_msgSender(), msg.value);
+        emit PaymentReceived(msg.sender, msg.value);
     }
 
     /**
@@ -132,3 +131,4 @@ contract PaymentSplitter is Context {
         emit PayeeAdded(account, shares_);
     }
 }
+
