@@ -32,20 +32,9 @@ contract PaymentSplitter {
     address[] private _payees;
 
     /**
-     * @dev Creates an instance of `PaymentSplitter` where each account in `payees` is assigned the number of shares at
-     * the matching position in the `shares` array.
-     *
-     * All addresses in `payees` must be non-zero. Both arrays must have the same non-zero length, and there must be no
-     * duplicates in `payees`.
+     * @dev Creates an instance of `PaymentSplitter`
      */
-    constructor (address[] memory payees, uint256[] memory shares) public payable {
-        // solhint-disable-next-line max-line-length
-        require(payees.length == shares.length, "PaymentSplitter: payees and shares length mismatch");
-        require(payees.length > 0, "PaymentSplitter: no payees");
-
-        for (uint256 i = 0; i < payees.length; i++) {
-            _addPayee(payees[i], shares[i]);
-        }
+    constructor () public payable {
     }
 
     /**
