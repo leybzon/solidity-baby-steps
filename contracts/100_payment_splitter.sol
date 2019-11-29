@@ -109,8 +109,8 @@ contract PaymentSplitter {
      * @param account The address of the payee to add.
      * @param shares_ The number of shares owned by the payee.
      */
-    function addPayee(address account, uint256 shares_) public {
-       _addPayee(address account, uint256 shares_);
+    function addPayee(address account, uint256 shares) public {
+       _addPayee(account, shares);
     }
 
     /**
