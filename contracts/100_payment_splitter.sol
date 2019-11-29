@@ -109,6 +109,15 @@ contract PaymentSplitter {
      * @param account The address of the payee to add.
      * @param shares_ The number of shares owned by the payee.
      */
+    function addPayee(address account, uint256 shares_) public {
+       _addPayee(address account, uint256 shares_);
+    }
+
+    /**
+     * @dev Add a new payee to the contract.
+     * @param account The address of the payee to add.
+     * @param shares_ The number of shares owned by the payee.
+     */
     function _addPayee(address account, uint256 shares_) private {
         require(account != address(0), "PaymentSplitter: account is the zero address");
         require(shares_ > 0, "PaymentSplitter: shares are 0");
