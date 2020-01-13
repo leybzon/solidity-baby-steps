@@ -11,7 +11,7 @@ contract MyNFT is ERC721Full, ERC721Mintable {
   
   function mint1(uint256 _uid, string memory _ipfsHash) public{
       _mint(msg.sender, _uid);
-      _documents[_uid] = "Test123";
+      _documents[_uid] = _ipfsHash;
   }
   
   function mintUniqueTokenTo(
