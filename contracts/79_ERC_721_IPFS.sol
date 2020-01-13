@@ -7,6 +7,8 @@ contract MyNFT is ERC721Full, ERC721Mintable {
   constructor() ERC721Full("IPFS", "IPFS_DEMO") public {
   }
   
+  mapping(uint256 => address) _documents;
+  
   function mint1(uint256 _uid) public{
       _mint(msg.sender, _uid);
   }
