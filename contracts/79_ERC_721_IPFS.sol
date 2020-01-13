@@ -18,7 +18,7 @@ contract MyNFT is ERC721Full, ERC721Mintable {
     address _to,
     uint256  _tokenId,
     string  memory _tokenURI,
-    string  memory s _ipfsHash
+    string  memory _ipfsHash
     ) public
     {
         super._mint(_to, _tokenId);
