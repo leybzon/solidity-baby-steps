@@ -7,11 +7,14 @@ contract MyNFT is ERC721Full, ERC721Mintable {
   constructor() ERC721Full("IPFS", "IPFS_DEMO") public {
   }
   
+  event RecordedIpfsHash(uint256, string);
+  
   mapping(uint256 => string) _documents;
   
   function mint1(uint256 _uid, string memory _ipfsHash) public{
       _mint(msg.sender, _uid);
       _documents[_uid] = _ipfsHash;
+      emit RecordedIpfsHash(_uid, _ipfsHash);
   }
   
   function mintUniqueTokenTo(
@@ -24,5 +27,6 @@ contract MyNFT is ERC721Full, ERC721Mintable {
         super._mint(_to, _tokenId);
         super._setTokenURI(_tokenId, _tokenURI);
         _documents[_tokenId] = _ipfsHash;
+        emit RecordedIpfsHash(_tokenId, _ipfsHash);
     }
 }
