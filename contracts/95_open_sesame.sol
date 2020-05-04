@@ -1,7 +1,7 @@
 pragma solidity >=0.4.22 <0.6.0;
 
 contract OpenSesame{
-   enum State { Locked, Unlocked };
+   enum State { Locked, Unlocked }
    State public state;
    uint public value; //value to unlock
 
@@ -12,9 +12,17 @@ contract OpenSesame{
 
    constructor() public {
       value = 1000;
-      state = Locked;
+      state = State.Locked;
       seller = msg.sender;
    }
+
+    modifier inState(State _state) {
+        require(
+            state == _state,
+            "Invalid state."
+        );
+        _;
+    }
 
     modifier condition(bool _condition) {
         require(_condition);
